@@ -137,7 +137,7 @@ const handleClickByRect = (pageX, pageY) => {
   }
 
   if (centerX !== 0 && centerY !== 0) {
-    turn ? drawCircle(centerY, centerY) : drawCross(centerY, centerY);
+    turn ? drawCircle(centerX, centerY) : drawCross(centerX, centerY);
     arr[rowY - 1][rowX - 1] = turn ? 'o' : 'x';
     turn = !turn;
   }
