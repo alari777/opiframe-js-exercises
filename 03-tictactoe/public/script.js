@@ -1,16 +1,31 @@
+let root;
 let canvas;
 let ctx;
 let turn = true;
 const arr = [];
 
 window.onload = function () {
+  root = document.getElementById('root');
   canvas = document.getElementById('myCanvas');
   canvas.addEventListener('click', (e) => {
     const { pageX, pageY } = e;
     handleClickByRect(pageX, pageY);
   });
   ctx = canvas.getContext('2d');
+
   start();
+};
+
+const restartGame = () => {
+  const restartButton = document.createElement('input');
+  restartButton.setAttribute('id', 'restartGame');
+  restartButton.setAttribute('type', 'button');
+  restartButton.setAttribute('value', 'Restart Game');
+  restartButton.setAttribute('style', 'margin-top: 20px;');
+  restartButton.addEventListener('click', () => {
+    window.location.reload();
+  });
+  return restartButton;
 };
 
 const createOneRect = (x, y) => {
@@ -53,9 +68,9 @@ const defineWinner = () => {
     alert('`Nolla` wins');
 
   if (arr[0][0] === 'o' && arr[1][1] === 'o' && arr[2][2] === 'o')
-    alert('`Nolla` wins');
-  if (arr[0][2] === 'o' && arr[1][1] === 'o' && arr[1][1] === 'o')
-    alert('`Nolla` wins');
+    alert('`Nolla` wins 1');
+  if (arr[0][2] === 'o' && arr[1][1] === 'o' && arr[2][0] === 'o')
+    alert('`Nolla` wins 2');
 
   if (arr[0][0] === 'x' && arr[0][1] === 'x' && arr[0][2] === 'x')
     alert('`Risti` wins');
@@ -73,7 +88,7 @@ const defineWinner = () => {
 
   if (arr[0][0] === 'x' && arr[1][1] === 'x' && arr[2][2] === 'x')
     alert('`Risti` wins');
-  if (arr[0][2] === 'x' && arr[1][1] === 'x' && arr[1][1] === 'x')
+  if (arr[0][2] === 'x' && arr[1][1] === 'x' && arr[2][0] === 'x')
     alert('`Risti` wins');
 };
 
@@ -154,4 +169,6 @@ const start = () => {
     }
     arr.push(localArr);
   }
+  const restartGameButton = restartGame();
+  root.appendChild(restartGameButton);
 };
