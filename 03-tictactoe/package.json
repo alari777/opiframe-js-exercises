@@ -1,0 +1,19 @@
+{
+  "name": "03-tictactoe",
+  "version": "1.0.0",
+  "description": "tictactoe game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tictacoe",
+    "\u001b[D\u001b[D\u001b[Dt\u001b[C\u001boe",
+    "game"
+  ],
+  "author": "Toivo",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
